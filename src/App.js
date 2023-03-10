@@ -33,6 +33,14 @@ const App = () => {
     setData(db_costumer);
   }, [setData]);
 
+  const handleRemove = (email) => {
+    const newArray = data.filter((item) => item.email !== email);
+
+    setData(newArray);
+
+    localStorage.setItem("card_cliente", JSON.stringify(newArray));
+  };
+
   return (
     <Flex 
       h="100vh"
@@ -94,6 +102,7 @@ const App = () => {
             setData={setData}
             dataEdit= {dataEdit}
             setDataEdit={setDataEdit}
+          />
         )}
       </Flex>
   );

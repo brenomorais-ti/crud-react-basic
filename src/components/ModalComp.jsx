@@ -22,7 +22,7 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose}) => {
         if (!name || !email) return;
 
         if (emailHandlerExists()) {
-            return alert("E-mail já cadastrado!")
+            return alert("E-mail já cadastrado!");
         };
 
         if (Object.keys(dataEdit).length) {
