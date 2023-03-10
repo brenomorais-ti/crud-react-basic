@@ -10,7 +10,7 @@ import {
     FormControl,
     FormLabel,
     Input,
-    box,
+    Box,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -28,6 +28,16 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose}) => {
         if (Object.keys(dataEdit).length) {
             data[dataEdit.index] = { name, email};
         }
+
+        const newDataArray = !Object.keys(dataEdit).length
+            ? [...(data ? data : []), {name, email}]
+            : [...(data ? data : [])];
+
+        localStorage.setItem("cad_cliente", JSON.stringify(newDataArray));
+
+        setData(newDataArray);
+
+        onClose();
     };
 
     const emailHandlerExists = () => {
