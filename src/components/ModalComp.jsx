@@ -41,9 +41,11 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose}) => {
     };
 
     const emailHandlerExists = () => {
-        if (dataEdit.email !== email && data?.length1) {
+        if (dataEdit.email !== email && data?.length) {
             return data.find((item) => item.email === email);
         }
+
+        return false;
     };
 
     return (
@@ -54,13 +56,21 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose}) => {
                     <ModalHeader>Cadastro de Cliente</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <FormControl display="flex" flexDir="colum" gap={4}>
+                        <FormControl display="flex" flexDir="column" gap={4}>
                             <Box>
                                 <FormLabel>Nome</FormLabel>
                                 <Input
                                     type="text"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
+                                />
+                            </Box>
+                            <Box>
+                                <FormLabel>Email</FormLabel>
+                                <Input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </Box>
                         </FormControl>

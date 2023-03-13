@@ -26,9 +26,9 @@ const App = () => {
   });
 
   useEffect(() => {
-    const db_costumer = localStorage.getItem('cad_cliente')
-    ? JSON.parse(localStorage.getItem('cad_cliente'))
-    : [];
+    const db_costumer = localStorage.getItem("cad_cliente")
+      ? JSON.parse(localStorage.getItem("cad_cliente"))
+      : [];
 
     setData(db_costumer);
   }, [setData]);
@@ -54,7 +54,7 @@ const App = () => {
             NOVO CADASTRO
           </Button>
 
-          <Box overflow="auto" height="100%">
+          <Box overflowY="auto" height="100%">
             <Table mt="6">
               <Thead>
                 <Tr>
@@ -89,7 +89,7 @@ const App = () => {
                         />
                     </Td>
                   </Tr>
-                ))};
+                ))}
               </Tbody>
             </Table>
           </Box>
